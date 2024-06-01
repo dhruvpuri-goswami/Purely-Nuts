@@ -1,0 +1,87 @@
+:root {
+    --primary-color: #5A3E36;
+    --background-color: #FFFDD0;
+    --primary-color-dark: #5a6a29;
+}
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+.card {
+    border-color: var(--primary-color);
+    transition: transform 0.2s;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+.card-header {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+    .btn-primary:hover {
+        background-color: var(--primary-color-dark);
+        border-color: var(--primary-color-dark);
+    }
+
+.list-group-item:hover {
+    background-color: var(--primary-color-light);
+}
+
+.navbar {
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.form-floating > label {
+    color: var(--primary-color);
+}
+
+.card-footer .small a {
+    color: var(--primary-color);
+}
+
+    .card-footer .small a:hover {
+        color: var(--primary-color-dark);
+    }
+.table {
+    border-collapse: separate;
+    margin: 0 0 1em 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+    .table th, .table td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: none;
+    }
+
+    .table thead th {
+        background-color: var(--primary-color);
+        color: var(--background-color);
+        text-align: center;
+    }
+
+    .table tbody td {
+        text-align: center;
+    }
+
+    .table tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.05); 
+    }
+
+    .table tbody tr:hover {
+        background-color: rgba(0, 0, 0, 0.1); 
+    }

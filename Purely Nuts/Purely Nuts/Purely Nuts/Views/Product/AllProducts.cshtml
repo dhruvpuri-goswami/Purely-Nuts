@@ -1,0 +1,44 @@
+﻿@model List<Purely_Nuts.Models.Product>
+
+@{
+    Layout = "~/Views/Shared/_User.cshtml";
+}
+<div>
+    <img src="~/images/5.png" class="d-block w-100" style="height:192px" alt="...">
+</div>
+<div class="container mt-5">
+    <h2 class="text-center mb-5"><b>All Products</b></h2>
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="card product-card h-100">
+                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(product.ImageData)" alt="@product.ProductName Image" class="card-img-top product-img">
+                <div class="card-body">
+                    <h5 class="card-title">@product.ProductName</h5>
+                    <p class="card-text">@product.ProductPrice.ToString("C")</p>
+                </div>
+                    <form asp-action="AddToCart" asp-controller="Home" method="post">
+                        <input type="hidden" name="productId" value="@product.ProductId" />
+                        <button type="submit" class="btn btn-primary">Add To Cart</button>
+                    </form>
+
+                    <form asp-action="Details" asp-controller="Home" method="get">
+                        <input type="hidden" name="productId" value="@product.ProductId" />
+                        <button type="submit" class="btn btn-secondary">Details</button>
+                    </form>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;background: var(--primary-color);" class="animated rounded">
+    <a href="">
+        <div class="rounded p-3 text-white">
+            <i class="fas fa-shopping-cart fa-2x"></i>
+            <span class="badge badge-warning">
+                @ViewBag.CartCount
+            </span>
+        </div>
+    </a>
+</div>

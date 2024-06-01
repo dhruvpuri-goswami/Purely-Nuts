@@ -1,0 +1,38 @@
+﻿@model List<Purely_Nuts.Models.Product>
+
+@{
+    Layout = "~/Views/Shared/_User.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4" style="color: #00494d;"><b>Your Cart</b></h2>
+    @if (Model.Any())
+    {
+        foreach (var product in Model)
+        {
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 shadow-sm border-top-primary">
+                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(product.ImageData)" class="card-img-top" alt="@product.ProductName" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">@product.ProductName</h5>
+                            <p><strong>Quantity:</strong> <span class="badge badge-info">@product.Quantity</span></p>
+                            <p><strong>Price:</strong> @product.ProductPrice.ToString("C")</p>
+                            <p><i class="fas fa-calculator"></i> <strong>Total:</strong> @(product.Quantity * product.ProductPrice)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="text-right mt-3">
+            <h4>Total: $@(Model.Sum(product => product.Quantity * product.ProductPrice))</h4>
+        </div>
+        <div class="text-center mt-5">
+            <a href="#" class="btn btn-block btn-primary">Checkout</a>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">Your cart is empty.</div>
+    }
+</div>

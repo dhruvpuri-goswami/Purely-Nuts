@@ -1,0 +1,62 @@
+﻿@model List<Purely_Nuts.Models.Product>
+
+@{
+    Layout = "~/Views/Shared/_User.cshtml";
+    var product = ViewBag.Product as Purely_Nuts.Models.Product;
+}
+
+<div>
+    <img src="~/images/4.jpg" class="d-block w-100" style="height:192px" alt="...">
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3 position-relative">
+            <div class="product-image-container">
+                <img src="~/images/p1.png" class="img-fluid product-image rounded"
+                     data-toggle="modal" data-target="#productImageModal">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2>
+                @product.ProductName
+            </h2>
+            <p class="lead">
+                Price: @product.ProductPrice.ToString("C")
+            </p>
+            <p class="text-muted">
+                Available Stock: @ViewBag.Aval
+            </p>
+            <p>
+                @product.ProductDescription
+            </p>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary quantity-decrease" type="button">-</button>
+
+                </div>
+                <input type="text" class="form-control text-center" value="0" readonly>
+
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary quantity-increase" type="button">+</button>
+
+                </div>
+            </div>
+            <div class="mt-2">
+                <button class="btn btn-primary" type="button">Go to Cart</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;background: var(--primary-color);" class="animated rounded">
+    <a href="">
+        <div class="rounded p-3 text-white">
+            <i class="fas fa-shopping-cart fa-2x"></i>
+            <span class="badge badge-warning">
+                @ViewBag.CNT
+            </span>
+        </div>
+    </a>
+</div>

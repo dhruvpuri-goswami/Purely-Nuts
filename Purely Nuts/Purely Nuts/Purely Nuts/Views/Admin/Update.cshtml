@@ -1,0 +1,34 @@
+﻿@model Purely_Nuts.Models.Product
+
+@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="container mt-5">
+    <h2><b>Update Product</b></h2><br />
+    <form asp-action="Update" method="post" enctype="multipart/form-data">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="productName" name="productName" placeholder="Product Name" value="@Model.ProductName" required>
+            <label for="productName">Product Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="price" name="price" placeholder="Price" value="@Model.ProductPrice.ToString("0.00")" step="0.01" required>
+            <label for="price">Price</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Quantity" value="@Model.Quantity" required>
+            <label for="quantity">Quantity</label>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Current Image</label>
+            <input type="file" class="form-control" name="file" accept="image/*">
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="description" name="description" placeholder="Product Description" value="@Model.ProductDescription">
+            <label for="description">Description</label>
+        </div>
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary" style="width:120px">Update Product</button>
+        </div>
+    </form>
+</div>

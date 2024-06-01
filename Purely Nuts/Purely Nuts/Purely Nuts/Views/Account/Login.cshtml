@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "User Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-7">
+            <div class="d-flex justify-content-center">
+                <img src="~/images/logo.png" alt="Purely Nuts Logo" class="mb-4" style="width: 190px;">
+
+            </div>
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header text-center">
+                    <h3 class="font-weight-light my-2"><b>Welcome User !</b></h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="@Url.Action("Login", "Account")">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username or Email" required>
+                            <label for="username">Username or Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center py-3">
+                    <div class="small">Need an account? <a asp-controller="Account" asp-action="Register">Sign up!</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

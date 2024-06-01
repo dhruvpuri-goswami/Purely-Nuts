@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<div class="container mt-5">
+    <div class="row text-center">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 border-primary">
+                <div class="card-header" style="background-color: var(--primary-color);color:var(--background-color)">Total Products</div>
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-clipboard-list fa-2x"></i></h5>
+                    <p class="card-text">@ViewBag.TotalProducts Items</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 border-primary">
+                <div class="card-header" style="background-color: var(--primary-color);color:var(--background-color)">Total Sales</div>
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-dollar-sign fa-2x"></i></h5>
+                    <p class="card-text">$@ViewBag.TotalSales</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 border-primary">
+                <div class="card-header" style="background-color: var(--primary-color);color:var(--background-color)">Total Orders</div>
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-shopping-cart fa-2x"></i></h5>
+                    <p class="card-text">@ViewBag.TotalOrders Orders</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="mt-3 mb-3">Latest Order</h3>
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Order # @ViewBag.LatestOrder?.OrderId</h5>
+                <small>@ViewBag.LatestOrder?.Date.ToShortDateString()</small>
+            </div>
+            <p class="mb-1">Ordered by @ViewBag.LatestOrder?.User.Username</p>
+            <small>Total amount: $@ViewBag.LatestOrder?.TotalPrice</small>
+        </a>
+    </div>
+
+    <h3 class="mt-5 mb-3">Product</h3>
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">@ViewBag.Product?.ProductName</h5>
+            </div>
+            <p class="mb-1">Price: $@ViewBag.Product?.ProductPrice</p>
+            <small class="text-muted">@ViewBag.Product?.Quantity units in stock</small>
+        </a>
+    </div>
+</div>
