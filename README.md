@@ -20,7 +20,7 @@ PurelyNuts is your go-to online marketplace for premium dry fruits. Built with A
 To get started with PurelyNuts, ensure you have ASP.NET Core and EF Core installed. Then, follow these steps:
 
 ```bash
-git clone https://github.com/yourusername/PurelyNuts.git
+git clone https://github.com/dhruvpuri-goswami/Purely-Nuts.git
 cd PurelyNuts
 dotnet restore
 dotnet run
